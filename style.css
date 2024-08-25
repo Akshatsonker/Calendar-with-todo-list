@@ -1,0 +1,252 @@
+/* Reset and base styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    min-height: 100vh;
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(to bottom, #4c1de8, #2b1054);
+    background-image: url(timemachine.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-blend-mode: multiply;
+}
+
+/* Typography */
+h1 {
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+/* Calendar styles */
+.calendar {
+    margin: auto;
+    width: 90%;
+    padding: 1rem;
+    background: linear-gradient(to bottom, #f02065, #78092e);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 0;
+}
+
+.calendar ul li {
+    width: calc(100% / 7);
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+#prev, #next {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#prev::before, #next::before {
+    content: ' ';
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    border-color: #ccc;
+}
+
+#next::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#prev::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#prev:hover::before,
+#next:hover::before {
+    border-color: #000;
+}
+
+.days {
+    font-weight: 600;
+}
+
+.dates li.today {
+    color: #fff;
+}
+
+.dates li.today::before {
+    content: ' ';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.dates li.inactive {
+    color: #ccc;
+}
+
+/* Todo styles */
+.todo {
+    margin: auto;
+    padding: 1rem;
+    width: 90%;
+}
+
+.todo-input {
+    width: 70%;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    /* background-color: rgb(203, 16, 51); */
+    color: #78092e;
+}
+
+.todo-button {
+    width: 28%;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.todo-button:hover {
+    background-color: #3e8e41;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+     background-color: rgb(203, 16, 51);
+}
+
+.todo-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.todo-list li:last-child {
+    border-bottom: none;
+}
+
+.delete-button {
+    background-color: #291d1c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+}
+
+.delete-button:hover {
+    background-color: #e91e63;
+}
+
+/* Arrow button styles */
+#up {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#up::before {
+    content: ' ';
+    margin-left: -4.0rem;
+    width: 10px;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    border-color: #ccc;
+}
+
+#up::before {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+#up:hover::before {
+    border-color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .calendar, .todo {
+        width: 100%;
+    }
+
+    .todo-input, .todo-button {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .todo-button {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .calendar, .todo {
+        width: 80%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .calendar, .todo {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .calendar, .todo {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .calendar, .todo {
+        width: 50%;
+    }
+}
